@@ -28,3 +28,14 @@ if( ! defined( 'BLOG_THEME_URL' ) ) {
 }
 
 add_theme_support( 'widgets' );
+
+/**
+ * Load theme classes
+ */
+require_once BLOG_THEME_PATH . '/inc/classes/Autoloader.php';
+
+// Register theme autoloader.
+Autoloader::register();
+
+// Initialize the theme.
+Blog_Theme::get_instance();
