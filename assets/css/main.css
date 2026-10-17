@@ -1,0 +1,221 @@
+:root {
+      --container-width: 71.25rem;
+      --container-gutter: 1.25rem;
+      --header-padding-y: 1.125rem;
+      --bg-white: #fff;
+      --bg-lightgrey: #f3f7f6;
+      --text-color: #111;
+      --cyan-blue: #0056b3;
+      --black: #000;
+      --navy-blue: #004587;
+      --navy-blue-dark: #003366;
+      --border-color: #e5e8e7;
+      --meta-color: #444;
+      --sidebar-width: 16.5rem;
+}
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--text-color);
+      background: var(--bg-white);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+      display: block
+}
+
+a:active {
+      outline: 0;
+}
+
+a,
+a:-webkit-any-link,
+a:focus,
+a:hover,
+a:visited {
+      text-decoration: none;
+}
+
+a {
+      color: var(--navy-blue);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+      color: inherit;
+      font: inherit;
+      margin: 0;
+}
+
+input[type=password],
+input[type=search],
+input[type=text] {
+      padding: 0.5rem;
+      flex-grow: 1;
+      min-width: 3em;
+      border: 0.063rem solid #949494;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit
+}
+
+button[type=submit],
+input[type=submit] {
+      background: #f7f7f7;
+      border: 0.063rem solid #ccc;
+      padding: 0.5rem 0.625rem;
+      color: #32373c;
+      margin-left: .625em;
+      word-break: normal;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      cursor: pointer;
+}
+
+.container {
+      max-width: min(var(--container-width), calc(100% - (var(--container-gutter) * 2)));
+      margin-inline: auto;
+}
+
+.site-header {
+      background: var(--bg-white);
+      box-shadow: 0 0.313rem 0.625rem 0 rgba(50, 50, 50, .08);
+}
+
+.bs-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 4.5rem;
+}
+
+.bs-site-branding {
+      display: flex;
+      align-items: center;
+}
+
+.bs-site-branding img {
+      display: block;
+      max-height: 4rem;
+      width: auto;
+}
+
+.site-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      line-height: 1;
+}
+
+.site-title a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+      color: var(--cyan-blue);
+}
+
+.bs-navigation-menu {
+      display: flex;
+      align-items: center;
+}
+
+#primary-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+}
+
+#primary-menu li {
+      list-style: none;
+}
+
+#primary-menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+}
+
+#primary-menu a:hover {
+      color: var(--cyan-blue);
+}
+
+.menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+
+      -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle svg {
+      width: 1.875rem;
+      height: 1.875rem;
+}
+
+/* Responsive */
+@media (max-width: 48rem) {
+      .bs-header__inner {
+            min-height: 4rem;
+            position: relative;
+            z-index: 92;
+      }
+
+      .menu-toggle {
+            display: block;
+            position: relative;
+            z-index: 95;
+      }
+
+      .blog-space-menu {
+            display: block;
+            position: fixed;
+            top: 4rem;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 4rem);
+            background: var(--bg-white);
+            overflow-y: auto;
+            z-index: 90;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+      }
+
+      #primary-menu {
+            display: block;
+      }
+
+      #primary-menu a {
+            display: block;
+            padding: 0.938rem 1.25rem;
+      }
+}
