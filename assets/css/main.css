@@ -167,6 +167,36 @@ input[type=submit] {
       color: var(--cyan-blue);
 }
 
+/* Submenu / dropdown (desktop) */
+#primary-menu .menu-item-has-children {
+      position: relative;
+}
+
+#primary-menu .sub-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 11.25rem;
+      background: var(--bg-white);
+      border: 0.063rem solid #eee;
+      box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
+      list-style: none;
+      padding: 0.5rem 0;
+      z-index: 10;
+}
+
+#primary-menu .menu-item-has-children:hover>.sub-menu,
+#primary-menu .menu-item-has-children:focus-within>.sub-menu {
+      display: block;
+}
+
+#primary-menu .sub-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+}
+
 .menu-toggle {
       display: none;
       background: none;
@@ -180,6 +210,54 @@ input[type=submit] {
 .menu-toggle svg {
       width: 1.875rem;
       height: 1.875rem;
+}
+
+body.bs-menu-open {
+      overflow: hidden;
+}
+
+/* Sticky header (see main.js) */
+.blog-space-header.is-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
+}
+
+/* Footer */
+.blog-space-footer {
+      border-top: 0.063rem solid #e8e8e8;
+}
+
+.footer-bottom {
+      padding-block: 1.25rem;
+}
+
+.footer-bottom__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+}
+
+.footer-copyright {
+      color: #555;
+      font-size: 0.875rem;
+}
+
+.footer-links a {
+      color: #555;
+      font-size: 0.875rem;
+      text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+      color: var(--cyan-blue);
+      text-decoration: underline;
 }
 
 /* Responsive */
@@ -210,6 +288,10 @@ input[type=submit] {
             transition: transform 0.3s ease;
       }
 
+      .blog-space-menu.active {
+            transform: translateX(0);
+      }
+
       #primary-menu {
             display: block;
       }
@@ -217,5 +299,29 @@ input[type=submit] {
       #primary-menu a {
             display: block;
             padding: 0.938rem 1.25rem;
+      }
+
+      .sub-menu {
+            display: none;
+            position: static;
+            box-shadow: none;
+            border: none;
+            background: #f7f7f7;
+            padding: 0;
+      }
+
+      .sub-menu--open {
+            display: block;
+      }
+
+      .menu-item--open>a {
+            color: var(--cyan-blue);
+      }
+
+      /* Footer */
+      .footer-bottom__inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
       }
 }
