@@ -11,6 +11,8 @@ if( ! defined( 'ABSPATH' ) ) {
  */
 class Blog_Theme {
       protected static $instance = null;
+	protected $assets;
+	protected $menu;
 
       public static function get_instance() {
             if( null === self::$instance ) {
@@ -21,6 +23,7 @@ class Blog_Theme {
 
       protected function __construct() {
             $this->setup_hooks();
+		$this->init_classes();
       }
 
       protected function setup_hooks() {
@@ -81,6 +84,18 @@ class Blog_Theme {
 			)
 		);
       }
+
+	/**
+	* Initialize all classes.
+     	* 
+     	* @since   1.0.0
+     	* @access  public
+     	* @return  void
+     	*/
+    	private function init_classes() {
+        	$this->assets = new Assets();
+		$this->menu = new Blog_Menus();
+    	}
 
       /**
 	 * Add a pingback url auto-discovery header for single posts, pages, or attachments.
