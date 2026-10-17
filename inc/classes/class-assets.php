@@ -35,5 +35,6 @@ class Assets {
       */
       public function enqueue_scripts() {
             wp_enqueue_style( 'custom-style', BLOG_THEME_URL . '/assets/css/main.css', array(), BLOG_THEME_VERSION );
+            wp_enqueue_script( 'main-js', BLOG_THEME_URL . '/assets/js/main.js', array('jquery'), BLOG_THEME_VERSION, true );
       }
 }
